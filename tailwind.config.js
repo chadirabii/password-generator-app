@@ -11,7 +11,7 @@ module.exports = {
       'dark-grey': 'hsl(248deg 10% 15%)',
       'grey': 'hsl(251deg 9% 53%)',
       'almost-white': 'hsl(252deg 11% 91%)',
-      'very-dark-grey': 'hsl(248deg 15% 11%)',
+      'very-dark-grey': '#08070B',
       'neon-green': 'hsl(127deg 100% 82%)',
       'red': 'hsl(0deg 91% 63%)',
       'orange': 'hsl(13deg 95% 66%)',

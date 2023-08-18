@@ -23,9 +23,11 @@ const PasswordDisplay = ({ password }) => {
 
   return (
     <div
-      className={`text-almost-white  px-4 sm:px-8 py-4 sm:py-5 bg-dark-grey w-full text-heading-M sm:text-heading-L relative z-10`}
+      className={`text-[#E7E6EB]  px-4 sm:px-8 py-4 sm:py-5 bg-dark-grey w-full text-heading-M sm:text-heading-L relative z-10`}
     >
-      <span className={`${isPasswordNotEmpty ? "" : "opacity-25"}`}>
+      <span
+        className={`${isPasswordNotEmpty ? "" : "opacity-25 text-[#E7E6EB]"}`}
+      >
         {isPasswordNotEmpty ? password : "P4$5W0rD!"}
       </span>
       <div

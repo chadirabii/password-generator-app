@@ -11,7 +11,7 @@ const Slider = ({ id, value, setValue }) => {
   return (
     <div className="w-full">
       <div className="flex justify-between mb-2 sm:mb-4">
-        <label htmlFor={id} className="text-base sm:text-body">
+        <label htmlFor={id} className="text-base text-white sm:text-body">
           {id}
         </label>
         <span className="text-heading-M sm:text-heading-L text-neon-green">
