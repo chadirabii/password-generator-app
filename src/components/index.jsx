@@ -1,6 +1,6 @@
 import { useState } from "react";
-import PasswordSettings from "./password-settings";
-import PasswordDisplay from "./password-display";
+import PasswordSettings from "./settings";
+import PasswordDisplay from "./display";
 
 const PasswordGenerator = () => {
   const [password, setPassword] = useState("");

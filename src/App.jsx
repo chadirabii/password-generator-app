@@ -1,14 +1,10 @@
-import Button from "./components/button";
+import PasswordGenerator from "./components";
 
 function App() {
   return (
-    <>
-      <Button
-        onClick={() => {
-          console.log("Button clicked");
-        }}
-      />
-    </>
+    <main className="sm:flex sm:justify-center sm:items-center">
+      <PasswordGenerator />
+    </main>
   );
 }
 

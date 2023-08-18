@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import IconCopy from "../../assets/icon-copy";
+import IconCopy from "../assets/icon-copy";
 
 const PasswordDisplay = ({ password }) => {
   const [copied, setCopied] = useState(false);

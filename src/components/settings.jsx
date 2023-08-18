@@ -1,46 +1,53 @@
-import { useEffect, useState } from "react";
-import IconCopy from "../../assets/icon-copy";
+import React from "react";
+import Button from "./button";
+import Checkbox from "./checkbox";
+import Slider from "./slider";
+import PasswordStrength from "./strength";
 
-const PasswordDisplay = ({ password }) => {
-  const [copied, setCopied] = useState(false);
-  const isPasswordNotEmpty = password !== "";
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setCopied(false);
-    }, 3000);
-
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [copied]);
-
-  const savePasswordToClipboard = () => {
-    if (password.length === 0) return setCopied(false);
-    setCopied(true);
-    navigator.clipboard.writeText(password);
-  };
-
+const PasswordSettings = ({
+  settings,
+  changeSettings,
+  generatePassword,
+  calculatedPasswordStrength,
+}) => {
   return (
-    <div
-      className={`text-almost-white  px-4 sm:px-8 py-4 sm:py-5 bg-dark-grey w-full text-heading-M sm:text-heading-L relative z-10`}
-    >
-      <span className={`${isPasswordNotEmpty ? "" : "opacity-25"}`}>
-        {isPasswordNotEmpty ? password : "P4$5W0rD!"}
-      </span>
-      <div
-        className={`flex gap-2 ${
-          password.length < 18 ? "gap-4" : "gap-2"
-        } items-center text-neon-green absolute right-4 sm:right-8 top-[1.375rem] sm:top-7`}
-      >
-        <span className="text-base sm:text-body">{copied && "COPIED"}</span>
-        <IconCopy
-          className="text-neon-green hover:text-almost-white"
-          onClick={savePasswordToClipboard}
+    <div className="w-full bg-dark-grey p-4 sm:p-8 flex flex-col gap-8">
+      <Slider
+        id="Character Length"
+        value={settings.length}
+        setValue={changeSettings}
+      />
+      <div className="flex flex-col gap-4 sm:gap-5">
+        <Checkbox
+          id="useUppercase"
+          label="Include Uppercase Letters"
+          value={settings.useUppercase}
+          setValue={changeSettings}
+        />
+        <Checkbox
+          id="useLowercase"
+          label="Include Lowercase Letters"
+          value={settings.useLowercase}
+          setValue={changeSettings}
+        />
+        <Checkbox
+          id="useNumbers"
+          label="Include Numbers"
+          value={settings.useNumbers}
+          setValue={changeSettings}
+        />
+        <Checkbox
+          id="useSymbols"
+          label="Include Symbols"
+          value={settings.useSymbols}
+          setValue={changeSettings}
         />
       </div>
+      <PasswordStrength calculatedStrength={calculatedPasswordStrength} />
+
+      <Button onClick={generatePassword}>Generate</Button>
     </div>
   );
 };
 
-export default PasswordDisplay;
+export default PasswordSettings;
