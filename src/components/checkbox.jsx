@@ -1,5 +1,3 @@
-import { Settings } from "../password-generator";
-
 const Checkbox = ({ id, label, value, setValue }) => {
   return (
     <div className="flex gap-5 sm:gap-6 items-center">

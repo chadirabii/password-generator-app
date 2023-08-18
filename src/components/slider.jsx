@@ -1,5 +1,4 @@
 import React from "react";
-import { Settings } from "../password-generator";
 
 const Slider = ({ id, value, setValue }) => {
   const handleSliderValueChange = (e) => {
