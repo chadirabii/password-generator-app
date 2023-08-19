@@ -17,7 +17,7 @@ const PasswordGenerator = () => {
       useUppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
       useLowercase: "abcdefghijklmnopqrstuvwxyz",
       useNumbers: "0123456789",
-      useSymbols: "!()-.?[]`~;@#$%^&*+=",
+      useSymbols: "~`!@#$%^&*()_-+={[}]|\"'<,>.?/",
     };
 
     let charSet = "";

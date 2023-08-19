@@ -10,11 +10,8 @@
   }
 }
 
-
   @layer components {
-    
-
-    .disabled-button {
+        .disabled-button {
       cursor: not-allowed;
     }
     
@@ -22,7 +19,6 @@
       cursor: not-allowed;
     }
     
-
     .checkbox {
       box-sizing: border-box;
       appearance: none;
@@ -55,7 +51,7 @@
       outline: transparent;
     }
     
-    /* WebKit */
+   
     .slider::-webkit-slider-thumb {
       background-color: theme('colors.almost-white');
       border: 0;
@@ -73,7 +69,7 @@
       border: 2px solid theme('colors.neon-green');
     }
     
-    /* Firefox */
+  
     .slider::-moz-range-thumb {
       background-color: theme('colors.almost-white');
       border: 0;
@@ -91,7 +87,7 @@
       border: 2px solid theme('colors.neon-green');
     }
     
-    /* All the same stuff for IE */
+  
     .slider::-ms-thumb {
       background-color: theme('colors.almost-white');
       border: 0;
@@ -108,14 +104,13 @@
       border: 2px solid theme('colors.neon-green');
     }
     
-    /** FF*/
     .slider::-moz-range-progress {
       background-color: theme('colors.neon-green');
     }
     .slider::-moz-range-track {
       background-color: theme('colors.very-dark-grey');
     }
-    /* IE*/
+
     .slider::-ms-fill-lower {
       background-color: theme('colors.neon-green');
     }
@@ -123,10 +118,10 @@
       background-color: theme('colors.very-dark-grey');
     }
     
-    /*Chrome*/
+
     @media screen and (-webkit-min-device-pixel-ratio: 0) {
       .slider {
-        --percent: 75%;
+        --percent: 60%;
         background: linear-gradient(
           to right,
           theme('colors.neon-green') 0%,
