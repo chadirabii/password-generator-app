@@ -10,6 +10,10 @@ const PasswordSettings = ({
   generatePassword,
   calculatedPasswordStrength,
 }) => {
+  const isGenerateButtonDisabled = 
+    settings.length === 0 ||  // Disable if slider value is 0
+    !(settings.useUppercase || settings.useLowercase || settings.useNumbers || settings.useSymbols); // Disable if no checkboxes are selected
+
   return (
     <div className="w-full bg-dark-grey p-4 sm:p-8 flex flex-col gap-8">
       <Slider
@@ -45,7 +49,13 @@ const PasswordSettings = ({
       </div>
       <PasswordStrength calculatedStrength={calculatedPasswordStrength} />
 
-      <Button onClick={generatePassword}>Generate</Button>
+      <Button
+        disabled={isGenerateButtonDisabled}
+        onClick={generatePassword}
+        className={isGenerateButtonDisabled ? "disabled-button" : ""}
+      >
+        Generate
+      </Button>
     </div>
   );
 };

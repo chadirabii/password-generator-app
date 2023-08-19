@@ -9,6 +9,16 @@
 
 
   @layer components {
+    
+
+    .disabled-button {
+      cursor: not-allowed;
+    }
+    
+    .disabled-button:hover {
+      cursor: not-allowed;
+    }
+    
 
     .checkbox {
       box-sizing: border-box;
