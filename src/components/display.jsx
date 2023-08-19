@@ -1,15 +1,15 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import IconCopy from "../assets/icon-copy";
-import { toast, ToastContainer } from "react-toastify"; // Import toast and ToastContainer from react-toastify
-import "react-toastify/dist/ReactToastify.css"; // Import CSS for the toast
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const PasswordDisplay = ({ password }) => {
   const [copied, setCopied] = useState(false);
   const isPasswordNotEmpty = password !== "";
 
   const savePasswordToClipboard = () => {
-    if (password.length === 0) return setCopied(false);
-    setCopied(true);
+    if (password.length === 0) return;
+
     navigator.clipboard.writeText(password);
 
     toast.success("Password Copied ✅", {
@@ -22,6 +22,8 @@ const PasswordDisplay = ({ password }) => {
       progress: undefined,
       theme: "dark",
     });
+
+    setCopied(false);
   };
 
   return (
@@ -38,7 +40,6 @@ const PasswordDisplay = ({ password }) => {
           password.length < 18 ? "gap-4" : "gap-2"
         } items-center text-neon-green absolute right-4 sm:right-8 top-[1.375rem] sm:top-7`}
       >
-        <span className="text-base sm:text-body">{copied && "COPIED"}</span>
         <IconCopy
           className="text-neon-green hover:text-almost-white"
           onClick={savePasswordToClipboard}
