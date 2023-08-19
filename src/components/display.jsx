@@ -47,7 +47,8 @@ const PasswordDisplay = ({ password }) => {
       </div>
       <ToastContainer
         position="top-right"
-        autoClose={100000}
+        autoClose={3000}
+        limit={1}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
