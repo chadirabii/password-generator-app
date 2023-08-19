@@ -12,7 +12,7 @@ const PasswordSettings = ({ settings, changeSettings, generatePassword }) => {
     (settings.useSymbols ? 1 : 0);
 
   let calculatedPasswordStrength = 0;
-  if (checkedCount >= 1) {
+  if (checkedCount >= 1 || checkedCount === 0) {
     calculatedPasswordStrength = 1; // Too weak
   }
   if (checkedCount >= 2) {

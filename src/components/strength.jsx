@@ -2,14 +2,13 @@ import React from "react";
 
 const PasswordStrength = ({ selectedCount }) => {
   const colors = {
-    0: { color: "transparent", text: "" },
-    1: { color: "bg-red", text: "TOO WEAK!" },
-    2: { color: "bg-orange", text: "WEAK" },
-    3: { color: "bg-yellow", text: "MEDIUM" },
-    4: { color: "bg-neon-green", text: "STRONG" },
+    0: { bg: "transparent", text: "" },
+    1: { bg: "bg-red", text: "TOO WEAK!", textColor: "text-red" },
+    2: { bg: "bg-orange", text: "WEAK", textColor: "text-orange" },
+    3: { bg: "bg-yellow", text: "MEDIUM", textColor: "text-yellow" },
+    4: { bg: "bg-neon-green", text: "STRONG", textColor: "text-neon-green" },
   };
 
-  // Ensure that calculatedStrength is within the valid range
   const calculatedStrength = selectedCount <= 4 ? selectedCount : 0;
 
   const rectangles = [];
@@ -19,7 +18,7 @@ const PasswordStrength = ({ selectedCount }) => {
         key={i}
         className={`h-7 w-[10px] my-[0.875rem] sm:my-[1.375rem]
         ${i >= calculatedStrength ? "border-almost-white border-2" : ""}
-        ${i < calculatedStrength ? colors[calculatedStrength].color : ""}
+        ${i < calculatedStrength ? colors[calculatedStrength].bg : ""}
       `}
       ></div>
     );
@@ -27,9 +26,13 @@ const PasswordStrength = ({ selectedCount }) => {
 
   return (
     <div className="bg-[#191820] px-4 sm:px-8  flex justify-between items-center">
-      <span className="text-base sm:text-body text-grey">STRENGTH</span>
+      <span className={"text-base sm:text-body text-grey "}>STRENGTH</span>
       <div className="flex gap-2 items-center">
-        <span className="mr-2 text-body sm:text-heading-M text-green-400">
+        <span
+          className={`mr-2 text-body sm:text-heading-M ${
+            calculatedStrength > 0 ? colors[calculatedStrength].textColor : ""
+          }`}
+        >
           {colors[calculatedStrength].text}
         </span>
         {rectangles}
