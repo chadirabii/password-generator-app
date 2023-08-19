@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Button from "./button";
 import PasswordSettings from "./settings";
 import PasswordDisplay from "./display";
 

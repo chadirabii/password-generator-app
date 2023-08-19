@@ -1,5 +1,3 @@
-import React from "react";
-
 const Checkbox = ({ id, label, value, setValue }) => {
   return (
     <div className="flex text-white gap-5 sm:gap-6 items-center">

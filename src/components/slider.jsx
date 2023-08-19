@@ -1,5 +1,3 @@
-import React from "react";
-
 const Slider = ({ id, value, setValue }) => {
   const handleSliderValueChange = (e) => {
     const percent = (parseInt(e.target.value) / parseInt(e.target.max)) * 100;

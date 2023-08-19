@@ -1,5 +1,3 @@
-import React from "react";
-
 const PasswordStrength = ({ selectedCount }) => {
   const colors = {
     0: { text: "TOO WEAK!", textColor: "text-red" },
