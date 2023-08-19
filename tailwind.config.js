@@ -16,10 +16,6 @@ module.exports = {
       fontFamily: {
         roboto: "'Roboto', sans-serif, bold",
       },
-      fontSize: {
-        "heading-M": ["1.5rem", "2rem"],
-        "heading-L": ["1.7rem", "2.9rem"],
-      },
     },
   },
   plugins: [],
