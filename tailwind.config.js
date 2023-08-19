@@ -18,13 +18,13 @@ module.exports = {
       'yellow': 'hsl(42deg 91% 68%)',
       },
       fontFamily: {
-        jetbrainsmono: ['Jet Brains Mono', 'serif']
+        "roboto": "'Roboto', sans-serif, bold",
+
       },
       fontSize: {
-        body: ['1.125rem', '1.4375rem'],
-        title: ['1rem', '1.32rem'],
+        
         'heading-M': ['1.5rem', '2rem'],
-        'heading-L': ['2rem', '2.6875rem']
+        'heading-L': ['1.7rem', '2.9rem']
       }
     },
   },

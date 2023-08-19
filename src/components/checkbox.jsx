@@ -10,7 +10,7 @@ const Checkbox = ({ id, label, value, setValue }) => {
           setValue((prev) => ({ ...prev, [id]: e.target.checked }))
         }
       />
-      <label className="text-base text-white sm:text-body" htmlFor={id}>
+      <label className="text-body text-white sm:text-body" htmlFor={id}>
         {label}
       </label>
     </div>

@@ -45,9 +45,9 @@ const PasswordGenerator = () => {
 
   return (
     <div className="flex flex-col justify-center items-center gap-4 sm:gap-6 min-h-screen px-4 sm:w-[35.75rem]">
-      <h1 className="text-title text-center text-grey sm:text-heading-M sm:mb-2">
-        Password Generator
-      </h1>
+      <div className="text-heading-M font-bold text-center text-grey sm:text-heading-l sm:mb-2">
+        Password Generator App
+      </div>
       <PasswordDisplay password={password} />
       <PasswordSettings
         settings={settings}

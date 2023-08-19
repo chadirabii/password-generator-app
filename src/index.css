@@ -1,11 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;1,700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-    font-family: "Jet Brains Mono";
-    src: url("/fonts/JetBrainsMono-Bold.ttf");
+
+@layer base {
+  body {
+    font-family: 'Roboto Mono', monospace;
   }
+}
 
 
   @layer components {
