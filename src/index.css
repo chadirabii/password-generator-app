@@ -1,134 +1,134 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;1,700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
   body {
-    font-family: 'Roboto Mono', monospace;
+    font-family: "Roboto Mono", monospace;
   }
 }
 
-  @layer components {
-        .disabled-button {
-      cursor: not-allowed;
-    }
-    
-    .disabled-button:hover {
-      cursor: not-allowed;
-    }
-    
-    .checkbox {
-      box-sizing: border-box;
-      appearance: none;
-      background-color: theme('colors.very-dark-grey');
-      height: theme('spacing.5');
-      width: theme('spacing.5');;
-      position: relative;
-      cursor: pointer;
-      border: 2px solid theme('colors.almost-white')
-    }
+@layer components {
+  .disabled-button {
+    cursor: not-allowed;
+  }
 
-    .checkbox:hover {
-      border: 2px solid theme('colors.neon-green');
-    }
+  .disabled-button:hover {
+    cursor: not-allowed;
+  }
 
-    .checkbox:checked {
-      background: url('/images/checked.svg');
-      border: none;
-    }
+  .custom-toast {
+    font-size: 16px; /* Adjust the font size to your preference */
+    /* Add any other styles you want */
+  }
 
+  .checkbox {
+    box-sizing: border-box;
+    appearance: none;
+    background-color: theme("colors.very-dark-grey");
+    height: theme("spacing.5");
+    width: theme("spacing.5");
+    position: relative;
+    cursor: pointer;
+    border: 2px solid theme("colors.almost-white");
+  }
+
+  .checkbox:hover {
+    border: 2px solid theme("colors.neon-green");
+  }
+
+  .checkbox:checked {
+    background: url("/images/checked.svg");
+    border: none;
+  }
+
+  .slider {
+    background: theme("colors.very-dark-grey");
+    width: 100%;
+    height: 8px;
+    -webkit-appearance: none;
+    appearance: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .slider:focus {
+    outline: transparent;
+  }
+
+  .slider::-webkit-slider-thumb {
+    background-color: theme("colors.almost-white");
+    border: 0;
+    border-radius: 50%;
+    display: block;
+    width: 28px;
+    height: 28px;
+    transition: background-color 0.15s linear, border 0.15s ease-in-out;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  .slider:focus::-webkit-slider-thumb,
+  .slider::-webkit-slider-thumb:hover {
+    background-color: theme("colors.very-dark-grey");
+    border: 2px solid theme("colors.neon-green");
+  }
+
+  .slider::-moz-range-thumb {
+    background-color: theme("colors.almost-white");
+    border: 0;
+    border-radius: 50%;
+    display: block;
+    width: 28px;
+    height: 28px;
+    transition: background-color 0.15s linear, border 0.15s ease-in-out;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  .slider:focus::-moz-range-thumb,
+  .slider::-moz-range-thumb:hover {
+    background-color: theme("colors.very-dark-grey");
+    border: 2px solid theme("colors.neon-green");
+  }
+
+  .slider::-ms-thumb {
+    background-color: theme("colors.almost-white");
+    border: 0;
+    border-radius: 50%;
+    display: block;
+    width: 28px;
+    height: 28px;
+    transition: background-color 0.15s linear, border 0.15s ease-in-out;
+    appearance: none;
+  }
+  .slider:focus::-ms-thumb,
+  .slider::-ms-thumb:hover {
+    background-color: theme("colors.very-dark-grey");
+    border: 2px solid theme("colors.neon-green");
+  }
+
+  .slider::-moz-range-progress {
+    background-color: theme("colors.neon-green");
+  }
+  .slider::-moz-range-track {
+    background-color: theme("colors.very-dark-grey");
+  }
+
+  .slider::-ms-fill-lower {
+    background-color: theme("colors.neon-green");
+  }
+  .slider::-ms-fill-upper {
+    background-color: theme("colors.very-dark-grey");
+  }
+
+  @media screen and (-webkit-min-device-pixel-ratio: 0) {
     .slider {
-      background: theme('colors.very-dark-grey');
-      width: 100%;
-      height: 8px;
-      -webkit-appearance: none;
-      appearance: none;
-      -webkit-tap-highlight-color: transparent;
-    }
-    .slider:focus {
-      outline: transparent;
-    }
-    
-   
-    .slider::-webkit-slider-thumb {
-      background-color: theme('colors.almost-white');
-      border: 0;
-      border-radius: 50%;
-      display: block;
-      width: 28px;
-      height: 28px;
-      transition: background-color 0.15s linear, border 0.15s ease-in-out;
-      -webkit-appearance: none;
-      appearance: none;
-    }
-    .slider:focus::-webkit-slider-thumb,
-    .slider::-webkit-slider-thumb:hover {
-      background-color: theme('colors.very-dark-grey');
-      border: 2px solid theme('colors.neon-green');
-    }
-    
-  
-    .slider::-moz-range-thumb {
-      background-color: theme('colors.almost-white');
-      border: 0;
-      border-radius: 50%;
-      display: block;
-      width: 28px;
-      height: 28px;
-      transition: background-color 0.15s linear, border 0.15s ease-in-out;
-      -webkit-appearance: none;
-      appearance: none;
-    }
-    .slider:focus::-moz-range-thumb,
-    .slider::-moz-range-thumb:hover {
-      background-color: theme('colors.very-dark-grey');
-      border: 2px solid theme('colors.neon-green');
-    }
-    
-  
-    .slider::-ms-thumb {
-      background-color: theme('colors.almost-white');
-      border: 0;
-      border-radius: 50%;
-      display: block;
-      width: 28px;
-      height: 28px;
-      transition: background-color 0.15s linear, border 0.15s ease-in-out;
-      appearance: none;
-    }
-    .slider:focus::-ms-thumb,
-    .slider::-ms-thumb:hover {
-      background-color: theme('colors.very-dark-grey');
-      border: 2px solid theme('colors.neon-green');
-    }
-    
-    .slider::-moz-range-progress {
-      background-color: theme('colors.neon-green');
-    }
-    .slider::-moz-range-track {
-      background-color: theme('colors.very-dark-grey');
-    }
-
-    .slider::-ms-fill-lower {
-      background-color: theme('colors.neon-green');
-    }
-    .slider::-ms-fill-upper {
-      background-color: theme('colors.very-dark-grey');
-    }
-    
-
-    @media screen and (-webkit-min-device-pixel-ratio: 0) {
-      .slider {
-        --percent: 60%;
-        background: linear-gradient(
-          to right,
-          theme('colors.neon-green') 0%,
-          theme('colors.neon-green') var(--percent),
-          theme('colors.very-dark-grey') var(--percent),
-          theme('colors.very-dark-grey') 100%
-        );
-      }
+      --percent: 70%;
+      background: linear-gradient(
+        to right,
+        theme("colors.neon-green") 0%,
+        theme("colors.neon-green") var(--percent),
+        theme("colors.very-dark-grey") var(--percent),
+        theme("colors.very-dark-grey") 100%
+      );
     }
   }
+}

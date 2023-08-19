@@ -1,24 +1,27 @@
 import { useEffect, useState } from "react";
 import IconCopy from "../assets/icon-copy";
+import { toast, ToastContainer } from "react-toastify"; // Import toast and ToastContainer from react-toastify
+import "react-toastify/dist/ReactToastify.css"; // Import CSS for the toast
 
 const PasswordDisplay = ({ password }) => {
   const [copied, setCopied] = useState(false);
   const isPasswordNotEmpty = password !== "";
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setCopied(false);
-    }, 3000);
-
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [copied]);
-
   const savePasswordToClipboard = () => {
     if (password.length === 0) return setCopied(false);
     setCopied(true);
     navigator.clipboard.writeText(password);
+
+    toast.success("Password Copied ✅", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
   };
 
   return (
@@ -41,6 +44,19 @@ const PasswordDisplay = ({ password }) => {
           onClick={savePasswordToClipboard}
         />
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={100000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable
+        pauseOnHover={false}
+        theme="dark"
+        className="custom-toast"
+      />
     </div>
   );
 };
