@@ -1,4 +1,5 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import Button from "./button";
 import PasswordSettings from "./settings";
 import PasswordDisplay from "./display";
 
@@ -11,29 +12,6 @@ const PasswordGenerator = () => {
     useNumbers: true,
     useSymbols: true,
   });
-
-  const calculatePasswordStrength = () => {
-    if (password === "") return 0;
-    const patterns = ["[A-Z]", "[a-z]", "[0-9]", "[^A-Za-z0-9]"];
-    const hasLength = (length) => `(?=.{${length},})`;
-    const strengthLevels = [4, 3, 2, 1];
-
-    for (let i = 0; i < strengthLevels.length; i++) {
-      const strength = strengthLevels[i];
-      const regexPattern = patterns
-        .map(
-          (pattern) =>
-            pattern + hasLength(strength >= 3 ? 15 : strength === 2 ? 8 : 5)
-        )
-        .join("");
-
-      if (password.match(regexPattern)) {
-        return strength;
-      }
-    }
-
-    return 1;
-  };
 
   const generatePassword = () => {
     const charSets = {
@@ -76,7 +54,6 @@ const PasswordGenerator = () => {
         settings={settings}
         changeSettings={setSettings}
         generatePassword={generatePassword}
-        calculatedPasswordStrength={calculatePasswordStrength()}
       />
     </div>
   );

@@ -1,7 +1,6 @@
 import React from "react";
 
-const PasswordStrength = ({ calculatedStrength }) => {
-  const color = "bg-red";
+const PasswordStrength = ({ selectedCount }) => {
   const colors = {
     0: { color: "transparent", text: "" },
     1: { color: "bg-red", text: "TOO WEAK!" },
@@ -9,15 +8,19 @@ const PasswordStrength = ({ calculatedStrength }) => {
     3: { color: "bg-yellow", text: "MEDIUM" },
     4: { color: "bg-neon-green", text: "STRONG" },
   };
+
+  // Ensure that calculatedStrength is within the valid range
+  const calculatedStrength = selectedCount <= 4 ? selectedCount : 0;
+
   const rectangles = [];
   for (let i = 0; i < 4; i++) {
     rectangles.push(
       <div
-        key={i} // Add a unique key prop here
+        key={i}
         className={`h-7 w-[10px] my-[0.875rem] sm:my-[1.375rem]
         ${i >= calculatedStrength ? "border-almost-white border-2" : ""}
         ${i < calculatedStrength ? colors[calculatedStrength].color : ""}
-    `}
+      `}
       ></div>
     );
   }

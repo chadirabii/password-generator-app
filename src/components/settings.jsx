@@ -1,18 +1,31 @@
 import React from "react";
 import Button from "./button";
 import Checkbox from "./checkbox";
-import Slider from "./slider";
 import PasswordStrength from "./strength";
+import Slider from "./slider";
 
-const PasswordSettings = ({
-  settings,
-  changeSettings,
-  generatePassword,
-  calculatedPasswordStrength,
-}) => {
-  const isGenerateButtonDisabled = 
-    settings.length === 0 ||  // Disable if slider value is 0
-    !(settings.useUppercase || settings.useLowercase || settings.useNumbers || settings.useSymbols); // Disable if no checkboxes are selected
+const PasswordSettings = ({ settings, changeSettings, generatePassword }) => {
+  const checkedCount =
+    (settings.useUppercase ? 1 : 0) +
+    (settings.useLowercase ? 1 : 0) +
+    (settings.useNumbers ? 1 : 0) +
+    (settings.useSymbols ? 1 : 0);
+
+  let calculatedPasswordStrength = 0;
+  if (checkedCount >= 1) {
+    calculatedPasswordStrength = 1; // Too weak
+  }
+  if (checkedCount >= 2) {
+    calculatedPasswordStrength = 2; // Weak
+  }
+  if (checkedCount >= 3) {
+    calculatedPasswordStrength = 3; // Medium
+  }
+  if (checkedCount >= 4) {
+    calculatedPasswordStrength = 4; // Strong
+  }
+
+  const isGenerateButtonDisabled = settings.length === 0 || checkedCount === 0;
 
   return (
     <div className="w-full bg-dark-grey p-4 sm:p-8 flex flex-col gap-8">
@@ -47,7 +60,8 @@ const PasswordSettings = ({
           setValue={changeSettings}
         />
       </div>
-      <PasswordStrength calculatedStrength={calculatedPasswordStrength} />
+      {/* Pass the calculatedPasswordStrength as a prop to PasswordStrength */}
+      <PasswordStrength selectedCount={checkedCount} />
 
       <Button
         disabled={isGenerateButtonDisabled}
