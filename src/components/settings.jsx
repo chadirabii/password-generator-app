@@ -25,6 +25,7 @@ const PasswordSettings = ({ settings, changeSettings, generatePassword }) => {
     calculatedPasswordStrength = 4; // Strong
   }
 
+  // Disable the button if no checkbox is checked
   const isGenerateButtonDisabled = settings.length === 0 || checkedCount === 0;
 
   return (
@@ -60,14 +61,10 @@ const PasswordSettings = ({ settings, changeSettings, generatePassword }) => {
           setValue={changeSettings}
         />
       </div>
-      {/* Pass the calculatedPasswordStrength as a prop to PasswordStrength */}
+     
       <PasswordStrength selectedCount={checkedCount} />
 
-      <Button
-        disabled={isGenerateButtonDisabled}
-        onClick={generatePassword}
-        className={isGenerateButtonDisabled ? "disabled-button" : ""}
-      >
+      <Button onClick={generatePassword} isDisabled={isGenerateButtonDisabled}>
         Generate
       </Button>
     </div>

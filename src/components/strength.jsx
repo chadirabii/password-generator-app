@@ -2,7 +2,7 @@ import React from "react";
 
 const PasswordStrength = ({ selectedCount }) => {
   const colors = {
-    0: { bg: "transparent", text: "" },
+    0: { bg: "bg-red", text: "TOO WEAK!", textColor: "text-red" },
     1: { bg: "bg-red", text: "TOO WEAK!", textColor: "text-red" },
     2: { bg: "bg-orange", text: "WEAK", textColor: "text-orange" },
     3: { bg: "bg-yellow", text: "MEDIUM", textColor: "text-yellow" },
