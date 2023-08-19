@@ -12,17 +12,15 @@ const PasswordSettings = ({ settings, changeSettings, generatePassword }) => {
     (settings.useSymbols ? 1 : 0);
 
   let calculatedPasswordStrength = 0;
-  if (checkedCount >= 1 || checkedCount === 0) {
-    calculatedPasswordStrength = 1; // Too weak
-  }
-  if (checkedCount >= 2) {
-    calculatedPasswordStrength = 2; // Weak
-  }
-  if (checkedCount >= 3) {
-    calculatedPasswordStrength = 3; // Medium
-  }
+
   if (checkedCount >= 4) {
     calculatedPasswordStrength = 4; // Strong
+  } else if (checkedCount >= 3) {
+    calculatedPasswordStrength = 3; // Medium
+  } else if (checkedCount >= 2) {
+    calculatedPasswordStrength = 2; // Weak
+  } else {
+    calculatedPasswordStrength = 1; // Too weak
   }
 
   // Disable the button if no checkbox is checked
@@ -61,7 +59,7 @@ const PasswordSettings = ({ settings, changeSettings, generatePassword }) => {
           setValue={changeSettings}
         />
       </div>
-     
+
       <PasswordStrength selectedCount={checkedCount} />
 
       <Button onClick={generatePassword} isDisabled={isGenerateButtonDisabled}>

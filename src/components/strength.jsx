@@ -2,7 +2,7 @@ import React from "react";
 
 const PasswordStrength = ({ selectedCount }) => {
   const colors = {
-    0: { bg: "bg-red", text: "TOO WEAK!", textColor: "text-red" },
+    0: { text: "TOO WEAK!", textColor: "text-red" },
     1: { bg: "bg-red", text: "TOO WEAK!", textColor: "text-red" },
     2: { bg: "bg-orange", text: "WEAK", textColor: "text-orange" },
     3: { bg: "bg-yellow", text: "MEDIUM", textColor: "text-yellow" },
@@ -30,7 +30,7 @@ const PasswordStrength = ({ selectedCount }) => {
       <div className="flex gap-2 items-center">
         <span
           className={`mr-2 text-body sm:text-heading-M ${
-            calculatedStrength > 0 ? colors[calculatedStrength].textColor : ""
+            calculatedStrength >= 0 ? colors[calculatedStrength].textColor : ""
           }`}
         >
           {colors[calculatedStrength].text}
