@@ -1,6 +1,6 @@
 # Password Generator App - FrontendMentor challenge
 
-This Password Generator is a responsive web application designed to help users generate secure and random passwords for their online accounts. This project was created as a challenge on [Frontend Mentor](https://www.frontendmentor.io/challenges/password-generator-app-Mr8CLycqjh), and it aims to showcase not only password generation but also modern front-end development practices.
+Password Generator is a responsive web application designed to help users generate secure and random passwords for their online accounts. This project was created as a challenge on [Frontend Mentor](https://www.frontendmentor.io/challenges/password-generator-app-Mr8CLycqjh), and it aims to showcase not only password generation but also modern front-end development practices.
 
 ## Built with
 - [ViteJs](https://vitejs.dev/) - Local Development Server
